@@ -8,4 +8,4 @@ def get_numbers():
             L.append(i)
             
     print(L)
-    raise NotImplementedError
+    
