@@ -5,4 +5,18 @@ def convert_temperature(value, to_scale):
         to_scale: система счисления, в которую нужно конвертировать значение
     Returns: значение как результат конвертации
     """
-    raise NotImplementedError
+    if to_scale=='F':
+        T=value*9/5+32
+        print(T)
+    elif to_scale=='C':
+        T=(value-32)*5/9
+        print(T)
+    else:
+        print(value)
+    
+    
+    
+    
+    
+    
+    
