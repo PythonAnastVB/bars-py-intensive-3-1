@@ -1,10 +1,23 @@
-def decorator_maker():
-    """
-    Обертка, которая повторяет вызов функции times раз с паузой delay секунд
-    Args:
-        times: количество повторений
-        delay: задержка (с)
-    Returns:
-        валидное значение (при вызове bool() -> True)
-    """
-    raise NotImplementedError
+T=0
+def decorator_maker_function(times, delay):
+    def decorator_maker(function):
+    
+        def wrapper():
+            global T
+            base_result=function()
+            T+=1
+            if base_result==False:
+                while T<times:
+                    function()
+                    T+=1
+                    time.sleep(delay)
+            else:
+                return base_result
+            if T==3:
+                print("Количество попыток исчерпано")
+                
+        return wrapper
+    return decorator_maker
+
+
+    
